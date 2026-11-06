@@ -1,0 +1,206 @@
+{
+  "1": {
+    "class_type": "UNETLoader",
+    "inputs": {
+      "unet_name": "qwen_image_2.1_turbo_int8_convrot.safetensors",
+      "weight_dtype": "default"
+    }
+  },
+  "2": {
+    "class_type": "CLIPLoader",
+    "inputs": {
+      "clip_name": "qwen3vl_8b_int8_convrot.safetensors",
+      "type": "qwen_image",
+      "device": "default"
+    }
+  },
+  "3": {
+    "class_type": "VAELoader",
+    "inputs": {
+      "vae_name": "qwen_image_2.1_vae_bf16.safetensors"
+    }
+  },
+  "4": {
+    "class_type": "LoadImage",
+    "inputs": {
+      "image": "ref.png"
+    }
+  },
+  "5": {
+    "class_type": "PrimitiveStringMultiline",
+    "inputs": {
+      "value": "角色关键帧序列图，4 列 1 行，共 4 格横向并排，按时间顺序从左到右。画面中的角色必须与参考图完全一致：3D 渲染风格的动漫 Q 版少年，蓬松凌乱的黑色碎发、精致的五官、白皙皮肤、宽松纯白 T 恤、黑色阔腿九分裤配浅灰色翻边、黑白帆布高帮鞋。高质量 3D 动画电影质感，柔和的皮克斯式光影，干净的棚拍布光。\n严格对齐：4 格中角色的头部中心、头部大小、身体比例、机位、镜头、光线与躯干基线必须完全一致，双脚始终踩在同一条地平线上。不要缩放、平移或改变角色大小。只改变指定的一只手与面部表情。每格都必须完整显示角色，头发、手肘、手指都不能被裁切，格与格之间留出宽阔的空白间隔。\n背景：纯色绿幕（#00FF00），完全均匀，没有渐变、没有地面、没有阴影、没有反射、没有边框、没有网格线、没有文字、没有水印。\n姿势从左到右：\n第 1 格：正面站立，双臂自然垂在身侧，表情平静，正常睁眼。\n第 2 格：一边眉毛挑起，嘴角上扬露出坏笑。\n第 3 格：单眼眨眼，另一只眼睁开，坏笑，一只手开始抬向胸前。\n第 4 格：保持眨眼与坏笑，手抬到脸颊旁比出 OK 手势。"
+    }
+  },
+  "6": {
+    "class_type": "TextEncodeQwenImage21",
+    "inputs": {
+      "prompt": [
+        "5",
+        0
+      ],
+      "negative_prompt": "",
+      "resolution": 1024,
+      "clip": [
+        "2",
+        0
+      ],
+      "images.image_1": [
+        "4",
+        0
+      ],
+      "vae": [
+        "3",
+        0
+      ]
+    }
+  },
+  "7": {
+    "class_type": "EmptyLatentImage",
+    "inputs": {
+      "width": 1536,
+      "height": 1024,
+      "batch_size": 1
+    }
+  },
+  "8": {
+    "class_type": "KSamplerSelect",
+    "inputs": {
+      "sampler_name": "euler"
+    }
+  },
+  "9": {
+    "class_type": "ManualSigmas",
+    "inputs": {
+      "sigmas": "1.0,0.978453,0.95418,0.926626,0.89508,0.845148,0.704534,0.414568,0"
+    }
+  },
+  "10": {
+    "class_type": "SamplerCustom",
+    "inputs": {
+      "add_noise": true,
+      "noise_seed": 42,
+      "cfg": 1,
+      "model": [
+        "1",
+        0
+      ],
+      "positive": [
+        "6",
+        0
+      ],
+      "negative": [
+        "6",
+        1
+      ],
+      "sampler": [
+        "8",
+        0
+      ],
+      "sigmas": [
+        "9",
+        0
+      ],
+      "latent_image": [
+        "7",
+        0
+      ]
+    }
+  },
+  "11": {
+    "class_type": "VAEDecode",
+    "inputs": {
+      "samples": [
+        "10",
+        0
+      ],
+      "vae": [
+        "3",
+        0
+      ]
+    }
+  },
+  "12": {
+    "class_type": "StickerKeyGreen",
+    "inputs": {
+      "image": [
+        "11",
+        0
+      ],
+      "min_green": 90,
+      "dominance": 40,
+      "erode": 1,
+      "feather": 0.7,
+      "blank_wm_w": 118,
+      "blank_wm_h": 62
+    }
+  },
+  "13": {
+    "class_type": "StickerSplitGrid",
+    "inputs": {
+      "image": [
+        "12",
+        0
+      ],
+      "alpha": [
+        "12",
+        1
+      ],
+      "cols": 4,
+      "rows": 1,
+      "row_index": 0
+    }
+  },
+  "14": {
+    "class_type": "StickerAlignGround",
+    "inputs": {
+      "image": [
+        "13",
+        0
+      ],
+      "alpha": [
+        "13",
+        1
+      ],
+      "pad": 70,
+      "band_ratio": 0.06,
+      "lifts": ""
+    }
+  },
+  "15": {
+    "class_type": "StickerCompose",
+    "inputs": {
+      "image": [
+        "14",
+        0
+      ],
+      "alpha": [
+        "14",
+        1
+      ],
+      "text": "懂的都懂",
+      "font_path": "C:/Windows/Fonts/msyhbd.ttc",
+      "font_index": 0,
+      "ink": "#2B2B2B",
+      "canvas": 512,
+      "frame_order": "0,1,2,3,2,1"
+    }
+  },
+  "16": {
+    "class_type": "StickerSaveGIF",
+    "inputs": {
+      "image": [
+        "15",
+        0
+      ],
+      "alpha": [
+        "15",
+        1
+      ],
+      "filename_prefix": "sticker/006-懂的都懂",
+      "durations": "320,180,180,600,180,180",
+      "loop": 0,
+      "save_mp4": false
+    }
+  }
+}

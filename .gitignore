@@ -1,0 +1,11 @@
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+*.zip
+*.gif
+*.mp4
+_contact_sheet.png
+预览.html
+.tmp/
+node_modules/

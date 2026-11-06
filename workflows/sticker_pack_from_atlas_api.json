@@ -1,0 +1,204 @@
+{
+  "1": {
+    "class_type": "LoadImage",
+    "inputs": {
+      "image": "atlas_01.png"
+    }
+  },
+  "2": {
+    "class_type": "LoadImage",
+    "inputs": {
+      "image": "atlas_02.png"
+    }
+  },
+  "3": {
+    "class_type": "LoadImage",
+    "inputs": {
+      "image": "atlas_03.png"
+    }
+  },
+  "4": {
+    "class_type": "LoadImage",
+    "inputs": {
+      "image": "atlas_04.png"
+    }
+  },
+  "5": {
+    "class_type": "LoadImage",
+    "inputs": {
+      "image": "atlas_05.png"
+    }
+  },
+  "6": {
+    "class_type": "LoadImage",
+    "inputs": {
+      "image": "atlas_06.png"
+    }
+  },
+  "7": {
+    "class_type": "LoadImage",
+    "inputs": {
+      "image": "atlas_07.png"
+    }
+  },
+  "8": {
+    "class_type": "LoadImage",
+    "inputs": {
+      "image": "atlas_08.png"
+    }
+  },
+  "9": {
+    "class_type": "LoadImage",
+    "inputs": {
+      "image": "atlas_09.png"
+    }
+  },
+  "100": {
+    "class_type": "ImageBatch",
+    "inputs": {
+      "image1": [
+        "1",
+        0
+      ],
+      "image2": [
+        "2",
+        0
+      ]
+    }
+  },
+  "101": {
+    "class_type": "ImageBatch",
+    "inputs": {
+      "image1": [
+        "100",
+        0
+      ],
+      "image2": [
+        "3",
+        0
+      ]
+    }
+  },
+  "102": {
+    "class_type": "ImageBatch",
+    "inputs": {
+      "image1": [
+        "101",
+        0
+      ],
+      "image2": [
+        "4",
+        0
+      ]
+    }
+  },
+  "103": {
+    "class_type": "ImageBatch",
+    "inputs": {
+      "image1": [
+        "102",
+        0
+      ],
+      "image2": [
+        "5",
+        0
+      ]
+    }
+  },
+  "104": {
+    "class_type": "ImageBatch",
+    "inputs": {
+      "image1": [
+        "103",
+        0
+      ],
+      "image2": [
+        "6",
+        0
+      ]
+    }
+  },
+  "105": {
+    "class_type": "ImageBatch",
+    "inputs": {
+      "image1": [
+        "104",
+        0
+      ],
+      "image2": [
+        "7",
+        0
+      ]
+    }
+  },
+  "106": {
+    "class_type": "ImageBatch",
+    "inputs": {
+      "image1": [
+        "105",
+        0
+      ],
+      "image2": [
+        "8",
+        0
+      ]
+    }
+  },
+  "107": {
+    "class_type": "ImageBatch",
+    "inputs": {
+      "image1": [
+        "106",
+        0
+      ],
+      "image2": [
+        "9",
+        0
+      ]
+    }
+  },
+  "910": {
+    "class_type": "StickerPackBatch",
+    "inputs": {
+      "image": [
+        "107",
+        0
+      ],
+      "captions": "无所谓啦～\n真的假的？！\n让我再睡五分钟……\n喝一口，活过来。\n才、才没有呢！\n懂的都懂\n哼！不理你了！\n我真的会谢……\n今天也要开心！",
+      "font_path": "C:/Windows/Fonts/msyhbd.ttc",
+      "font_index": 0,
+      "ink": "#2B2B2B",
+      "canvas": 512,
+      "cols": 4,
+      "rows": 1,
+      "pad": 70,
+      "band_ratio": 0.06,
+      "lifts": "",
+      "blank_wm_w": 118,
+      "blank_wm_h": 62,
+      "frame_order": "0,1,2,3,2,1",
+      "durations": "320,180,180,600,180,180",
+      "loop": 0,
+      "pack_name": "atlas-pack",
+      "save_mp4": true
+    }
+  },
+  "920": {
+    "class_type": "PreviewImage",
+    "inputs": {
+      "images": [
+        "910",
+        0
+      ]
+    }
+  },
+  "921": {
+    "class_type": "PreviewImage",
+    "inputs": {
+      "images": [
+        "910",
+        1
+      ]
+    }
+  }
+}
